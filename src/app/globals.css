@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #6C63FF;
+    --accent-light: #8B85FF;
+    --accent-dark: #5A52E0;
+  }
+
+  * {
+    @apply border-white/[0.06];
+  }
+
+  body {
+    @apply bg-[#0A0A0B] text-[#E8E8E8] antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(108, 99, 255, 0.2);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0B;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1F2937;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.06];
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.1];
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#6C63FF] via-[#8B85FF] to-[#6C63FF];
+  }
+
+  .section-label {
+    @apply text-xs font-medium tracking-widest uppercase text-white/20;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl font-semibold tracking-tight text-white;
+  }
+
+  .section-description {
+    @apply text-base text-white/40 max-w-2xl leading-relaxed;
+  }
+
+  .terminal-line {
+    @apply font-mono text-sm leading-relaxed;
+  }
+}
