@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "I help startups build scalable backend platforms, AI integrations, automation systems and production-ready SaaS products.",
   icons: {
-    icon: "/portfolio/favicon.svg",
+    icon: "/Portfolio/favicon.svg",
   },
   openGraph: {
     title: "Mohammad Barzgar | Backend & AI Engineer",
