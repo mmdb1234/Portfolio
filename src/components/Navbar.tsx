@@ -1,13 +1,15 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
+  { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Expertise", href: "#expertise" },
+  { label: "Skills", href: "#expertise" },
   { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -25,7 +27,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0A0A0B]/80 backdrop-blur-xl border-b border-white/[0.04]"
+          ? "bg-[#0A1628]/80 backdrop-blur-xl border-b border-white/[0.04]"
           : "bg-transparent"
       }`}
     >
@@ -73,7 +75,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-white/[0.04] bg-[#0A0A0B]/95 backdrop-blur-xl"
+            className="md:hidden border-t border-white/[0.04] bg-[#0A1628]/95 backdrop-blur-xl"
           >
             <div className="px-4 py-4 space-y-1">
               {navItems.map((item) => (

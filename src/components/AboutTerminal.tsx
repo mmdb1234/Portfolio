@@ -1,13 +1,14 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const terminalLines = [
-  { command: "$ whoami", output: ["Mohammad Barzgar", "Backend & AI Engineer"] },
-  { command: "$ specialization", output: ["Backend Architecture", "AI Integrations", "Business Automation", "Microservices", "ERP / CRM Systems"] },
-  { command: "$ mission", output: ["Build software that saves businesses time and money."] },
-  { command: "$ status", output: ["Open to Remote Opportunities"] },
+  { command: "$ whoami", output: ["Mohammad Barzgar", "Senior Backend Engineer | Distributed Systems & AI"] },
+  { command: "$ experience", output: ["5+ years building enterprise-scale distributed systems", "20+ microservice ERP platform processing 1M+ transactions/day", "Multiple SaaS products built from scratch"] },
+  { command: "$ expertise", output: ["C# (.NET Core), Python, TypeScript", "Microservices, DDD, CQRS, Event Sourcing", "AI Integration (OpenAI, LLMs, XGBoost)", "System Design & Scalable Architecture"] },
+  { command: "$ focus", output: ["Building AI-powered automation and distributed systems", "Turning complex problems into simple, scalable solutions"] },
+  { command: "$ status", output: ["Open to Remote Opportunities & Relocation"] },
 ];
 
 export default function AboutTerminal() {
@@ -26,19 +27,13 @@ export default function AboutTerminal() {
 
       timers.push(
         setTimeout(() => {
-          setVisibleOutputs((prev) => ({
-            ...prev,
-            [lineIdx]: 0,
-          }));
+          setVisibleOutputs((prev) => ({ ...prev, [lineIdx]: 0 }));
 
           const outputs = terminalLines[lineIdx].output;
           outputs.forEach((_, outIdx) => {
             timers.push(
               setTimeout(() => {
-                setVisibleOutputs((prev) => ({
-                  ...prev,
-                  [lineIdx]: outIdx + 1,
-                }));
+                setVisibleOutputs((prev) => ({ ...prev, [lineIdx]: outIdx + 1 }));
               }, 200 + outIdx * 150)
             );
           });
@@ -57,11 +52,16 @@ export default function AboutTerminal() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
           <div className="text-center mb-12">
             <p className="section-label mb-3">About</p>
             <h2 className="section-title">Developer Profile</h2>
+            <p className="section-description mx-auto mt-3">
+              Senior Backend Engineer with 5+ years of experience designing
+              enterprise-scale distributed systems. Expert in C# (.NET Core),
+              Python, and AI integration. Built multiple SaaS products from scratch.
+            </p>
           </div>
 
           <div className="glass rounded-2xl overflow-hidden">
@@ -69,9 +69,7 @@ export default function AboutTerminal() {
               <div className="w-3 h-3 rounded-full bg-red-500/40" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/40" />
               <div className="w-3 h-3 rounded-full bg-emerald-500/40" />
-              <span className="text-xs text-white/15 ml-2 font-mono">
-                terminal
-              </span>
+              <span className="text-xs text-white/15 ml-2 font-mono">terminal</span>
             </div>
 
             <div className="p-5 md:p-6 font-mono space-y-5">
@@ -96,11 +94,7 @@ export default function AboutTerminal() {
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ duration: 0.2 }}
-                              className={`terminal-line ${
-                                outIdx === 0 && lineIdx === 0
-                                  ? "text-white font-semibold"
-                                  : "text-white/50"
-                              }`}
+                              className="terminal-line"
                             >
                               {text}
                             </motion.p>

@@ -1,33 +1,30 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
 const experiences = [
   {
-    role: "Senior Backend Engineer",
-    context: "Enterprise ERP & CRM Systems",
-    challenges: [
-      "Redesigned monolithic ERP into scalable microservices",
-      "Implemented distributed transaction handling across services",
-      "Built event-driven architecture for real-time inventory sync",
+    role: "Senior .NET Backend Developer",
+    company: "Arvand Fan Pars",
+    period: "Dec 2024 - Present",
+    items: [
+      "Built enterprise ERP with 20+ microservices (SCM, Inventory, Production, HR, Accounting, BPMS, Notification, Gateway, Orchestrator) using ASP.NET Core and Python. Delivered a 2.5B IRR project for 2,000+ concurrent users.",
+      "Engineered event-driven inventory system with RabbitMQ - dropped errors from 30% to <1%.",
+      "Optimized concurrent request handling: 1,000 transactions from 30 min to 7 seconds (99.6% improvement).",
+      "Applied DDD, CQRS, Event Sourcing, and Saga Pattern for distributed transaction consistency.",
+      "Scaled horizontally with on-demand workers - supported 2,000+ concurrent users.",
+      "Leveraged Redis for caching, IP rate-limiting, and cross-domain entity snapshots.",
+      "Maintained 80%+ code coverage with xUnit, NUnit, Integration, and Selenium tests.",
     ],
   },
   {
-    role: "Backend & AI Engineer",
-    context: "AI-Powered Automation Platform",
-    challenges: [
-      "Integrated LLMs for intelligent task routing and automation",
-      "Designed multi-tenant SaaS backend with isolated data layers",
-      "Optimized API response times from 500ms to under 50ms",
-    ],
-  },
-  {
-    role: "Full Stack Developer",
-    context: "CRM & Business Systems",
-    challenges: [
-      "Built real-time collaboration features using WebSockets",
-      "Designed database schemas handling millions of records",
-      "Implemented RBAC with fine-grained permission system",
+    role: "Full-Stack Developer",
+    company: "Tiger Company",
+    period: "Jun 2022 - Feb 2023",
+    items: [
+      "Built automated payroll calculator - 100% reduction in processing time.",
+      "Implemented bulk data entry - reduced input time by 60%.",
+      "Delivered 5,000+ tasks across 9 months with consistently high quality.",
     ],
   },
 ];
@@ -44,7 +41,11 @@ export default function ExperienceTimeline() {
           className="text-center mb-16"
         >
           <p className="section-label mb-3">Experience</p>
-          <h2 className="section-title">Engineering Journey</h2>
+          <h2 className="section-title">Work History</h2>
+          <p className="section-description mx-auto mt-3">
+            5+ years of experience building enterprise-scale distributed systems
+            and SaaS products.
+          </p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
@@ -65,21 +66,26 @@ export default function ExperienceTimeline() {
                   <div className="absolute left-[18px] top-[7px] w-2 h-2 rounded-full bg-accent" />
 
                   <div className="glass rounded-xl p-5 md:p-6">
-                    <h3 className="text-base font-semibold text-white">
-                      {exp.role}
-                    </h3>
-                    <p className="text-sm text-accent/60 mt-0.5 mb-4">
-                      {exp.context}
-                    </p>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-4">
+                      <div>
+                        <h3 className="text-base font-semibold text-white">
+                          {exp.role}
+                        </h3>
+                        <p className="text-sm text-accent/60">{exp.company}</p>
+                      </div>
+                      <span className="text-xs text-white/20 whitespace-nowrap">
+                        {exp.period}
+                      </span>
+                    </div>
 
-                    <ul className="space-y-2">
-                      {exp.challenges.map((c) => (
+                    <ul className="space-y-2.5">
+                      {exp.items.map((item) => (
                         <li
-                          key={c}
-                          className="text-sm text-white/40 flex items-start gap-2.5"
+                          key={item.substring(0, 20)}
+                          className="text-sm text-white/40 flex items-start gap-2.5 leading-relaxed"
                         >
                           <span className="w-1 h-1 rounded-full bg-white/20 mt-2 shrink-0" />
-                          {c}
+                          {item}
                         </li>
                       ))}
                     </ul>

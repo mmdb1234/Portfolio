@@ -4,9 +4,12 @@
 
 @layer base {
   :root {
-    --accent: #6C63FF;
-    --accent-light: #8B85FF;
-    --accent-dark: #5A52E0;
+    --accent: #2E8BC0;
+    --accent-light: #4FA8D9;
+    --accent-dark: #1F6D9E;
+    --navy-dark: #0A1628;
+    --navy: #0F1E3A;
+    --navy-light: #1A2D4F;
   }
 
   * {
@@ -14,13 +17,13 @@
   }
 
   body {
-    @apply bg-[#0A0A0B] text-[#E8E8E8] antialiased;
+    @apply bg-[#0A1628] text-[#E8E8E8] antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background-color: rgba(108, 99, 255, 0.2);
+    background-color: rgba(46, 139, 192, 0.2);
     color: #fff;
   }
 
@@ -29,16 +32,20 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #0A0A0B;
+    background: #0A1628;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1F2937;
+    background: #1F3A5F;
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #374151;
+    background: #2E8BC0;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -52,7 +59,7 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#6C63FF] via-[#8B85FF] to-[#6C63FF];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2E8BC0] via-[#4FA8D9] to-[#2E8BC0];
   }
 
   .section-label {
@@ -67,7 +74,17 @@
     @apply text-base text-white/40 max-w-2xl leading-relaxed;
   }
 
-  .terminal-line {
-    @apply font-mono text-sm leading-relaxed;
+  .glow {
+    box-shadow: 0 0 40px rgba(46, 139, 192, 0.15);
+  }
+}
+
+@layer utilities {
+  .animate-typing-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 }

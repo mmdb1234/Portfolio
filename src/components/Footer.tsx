@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="text-white/5">·</span>
             <span>TypeScript</span>
             <span className="text-white/5">·</span>
-            <span>TailwindCSS</span>
+            <span>Tailwind CSS</span>
             <span className="text-white/5">·</span>
             <span>Framer Motion</span>
           </div>
